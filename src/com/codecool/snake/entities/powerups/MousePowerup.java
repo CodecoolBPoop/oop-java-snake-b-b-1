@@ -36,7 +36,7 @@ public class MousePowerup extends GameEntity implements Interactable, Animatable
         if (snakeHead.getHealth()<=90){
             snakeHead.changeHealth(5);
         }else if (snakeHead.getHealth()<100 && snakeHead.getHealth()>90){
-            snakeHead.changeHealth(snakeHead.getHealth()-100);
+            snakeHead.changeHealth(100 - snakeHead.getHealth());
         }
         snakeHead.addPart(1);
         destroy();
