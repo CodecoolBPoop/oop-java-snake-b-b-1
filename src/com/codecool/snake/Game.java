@@ -77,7 +77,7 @@ public class Game extends Pane {
         Globals.gameLoop.stop();
         Globals.gameObjects.clear();
         getChildren().clear();
-        restartCase();
+        gameInit();
         start();
     };
 
