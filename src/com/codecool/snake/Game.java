@@ -5,7 +5,8 @@ import com.codecool.snake.entities.powerups.MousePowerup;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 
 public class Game extends Pane {
 
@@ -24,6 +25,14 @@ public class Game extends Pane {
 
         new MousePowerup(this);
     }
+
+    public void setTableBackground(Image tableBackground) {
+        setBackground(new Background(new BackgroundImage(tableBackground,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+    }
+
+
 
     public void start() {
         Scene scene = getScene();
