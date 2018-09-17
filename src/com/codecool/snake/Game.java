@@ -14,7 +14,7 @@ import javafx.scene.layout.Pane;
 
 public class Game extends Pane {
 
-    private Button restartButton = new Button("", new ImageView(new Image("myRestart.png")));
+    private Button restartButton = new Button("", new ImageView(Globals.restartImage));
 
 
     // if this constructor is changed, restartCase() method has to be changed the same way!
