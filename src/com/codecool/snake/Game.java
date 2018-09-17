@@ -11,6 +11,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
+
 
 public class Game extends Pane {
 
@@ -19,25 +22,13 @@ public class Game extends Pane {
 
     // if this constructor is changed, restartCase() method has to be changed the same way!
     public Game() {
-        new SnakeHead(this, 500, 500);
-
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-
-        new SimplePowerup(this);
-        new SimplePowerup(this);
-        new SimplePowerup(this);
-        new SimplePowerup(this);
-
-        new MousePowerup(this);
+        gameInit();
     }
 
     /*  at restart creates new object for the game because they we cleared
     *   if Game() - constructor changed, this has to be changed the same way */
 
-    public void restartCase() {
+    public void gameInit() {
         new SnakeHead(this, 500, 500);
 
         new SimpleEnemy(this);
@@ -52,6 +43,14 @@ public class Game extends Pane {
 
         new MousePowerup(this);
     }
+    public void setTableBackground(Image tableBackground) {
+        setBackground(new Background(new BackgroundImage(tableBackground,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT,
+                BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+    }
+
+
+
 
     public void start() {
         Scene scene = getScene();
