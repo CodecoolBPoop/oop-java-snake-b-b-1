@@ -26,8 +26,6 @@ public class MousePowerup extends GameEntity implements Interactable, Animatable
         Double x = rnd.nextDouble() * (Globals.WINDOW_WIDTH-40);
         setX(x);
         setY(y);
-        System.out.println("X ="+ this.getX());
-        System.out.println("Y =" + this.getY());
     }
 
     @Override
@@ -38,7 +36,7 @@ public class MousePowerup extends GameEntity implements Interactable, Animatable
         }else if (snakeHead.getHealth()<100 && snakeHead.getHealth()>90){
             snakeHead.changeHealth(100 - snakeHead.getHealth());
         }
-        snakeHead.addPart(1);
+        snakeHead.addPart(10);
         destroy();
         new MousePowerup(pane);
     }

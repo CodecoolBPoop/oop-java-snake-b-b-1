@@ -1,9 +1,11 @@
 package com.codecool.snake.entities.snakes;
 
+import com.codecool.snake.Utils;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
 import com.sun.javafx.geom.Vec2d;
+import javafx.geometry.Point2D;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
@@ -12,10 +14,10 @@ import java.util.List;
 import java.util.Queue;
 
 public class SnakeBody extends GameEntity implements Animatable {
-
+    private double rotationOfPrevious;
     private GameEntity parent;
     private Queue<Vec2d> history = new LinkedList<>();
-    private static final int historySize = 10;
+    private static final int historySize = 2;
 
     public SnakeBody(Pane pane, GameEntity parent) {
         super(pane);
