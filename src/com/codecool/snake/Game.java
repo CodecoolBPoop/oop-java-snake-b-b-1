@@ -4,6 +4,8 @@ import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.MousePowerup;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
+import com.codecool.snake.entities.utilities.HealthBar;
+import com.codecool.snake.entities.utilities.HealthBarFrame;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -42,6 +44,9 @@ public class Game extends Pane {
         new SimplePowerup(this);
 
         new MousePowerup(this);
+
+        new HealthBarFrame(this);
+        new HealthBar(this);
     }
     public void setTableBackground(Image tableBackground) {
         setBackground(new Background(new BackgroundImage(tableBackground,

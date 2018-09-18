@@ -5,17 +5,16 @@ import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import javafx.scene.layout.Pane;
 
-public class HealthBar extends GameEntity implements Animatable {
-    public HealthBar(Pane pane){
+public class HealthBarFrame extends GameEntity implements Animatable {
+    public HealthBarFrame(Pane pane){
         super(pane);
-        setX(880);
-        setY(20);
-        setFitWidth(100);
-        setImage(Globals.healthBarImage);
+        setX(875);
+        setY(15);
+        setImage(Globals.healthBarFrameImage);
         pane.getChildren().add(this);
     }
 
     public void step() {
-        setFitWidth(Globals.getSnakeHead().getHealth());
+        // pass
     }
 }
