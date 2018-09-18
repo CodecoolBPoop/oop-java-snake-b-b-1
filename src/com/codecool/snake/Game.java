@@ -44,8 +44,10 @@ public class Game extends Pane {
     }
 
     //  at new game creates new objects for the game
-    public void gameInit(Stage primaryStage) {
 
+    /*  at restart creates new object for the game because they we cleared
+    *   if Game() - constructor changed, this has to be changed the same way */
+    public void gameInit(Stage primaryStage) {
         Controller controller = new Controller(this);
         new LaserPowerUp(this);
         new SnakeHead(this, 500, 500);
