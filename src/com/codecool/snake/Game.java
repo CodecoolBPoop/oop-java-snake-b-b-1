@@ -1,7 +1,9 @@
 package com.codecool.snake;
 
 import com.codecool.snake.entities.GameEntity;
+import com.codecool.snake.entities.Controller.Controller;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.powerups.LaserPowerUp;
 import com.codecool.snake.entities.powerups.MousePowerup;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
@@ -17,7 +19,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
 import javafx.scene.layout.VBoxBuilder;
@@ -31,14 +32,22 @@ public class Game extends Pane {
 
     public Game(Stage primaryStage) {
         gameInit(primaryStage);
+        setPane();
     }
 
     public void gameSetter(Game game){
         Globals.game = game;
     }
 
+    public void setPane(){
+        Globals.pane = this;
+    }
+
     //  at new game creates new objects for the game
     public void gameInit(Stage primaryStage) {
+
+        Controller controller = new Controller(this);
+        new LaserPowerUp(this);
         new SnakeHead(this, 500, 500);
 
         new SimpleEnemy(this);
@@ -159,6 +168,8 @@ public class Game extends Pane {
 
 
     public void initButton() {
+        if(getChildren().contains(restartButton))
+            getChildren().remove(restartButton);
         restartButton.setLayoutX(40);
         restartButton.setLayoutY(40);
 
