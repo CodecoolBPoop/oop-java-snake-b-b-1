@@ -2,6 +2,7 @@ package com.codecool.snake;
 
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Controller.Controller;
+import com.codecool.snake.entities.Controller.Controller;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.LaserPowerUp;
 import com.codecool.snake.entities.powerups.MousePowerup;
@@ -35,17 +36,17 @@ public class Game extends Pane {
         setPane();
     }
 
+
     public void gameSetter(Game game){
         Globals.game = game;
     }
 
+    /*  at restart creates new object for the game because they we cleared
+    *   if Game() - constructor changed, this has to be changed the same way */
     public void setPane(){
         Globals.pane = this;
     }
-
-    //  at new game creates new objects for the game
     public void gameInit(Stage primaryStage) {
-
         Controller controller = new Controller(this);
         new LaserPowerUp(this);
         new SnakeHead(this, 500, 500);
