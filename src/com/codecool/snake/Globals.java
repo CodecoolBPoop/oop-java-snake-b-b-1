@@ -5,7 +5,6 @@ import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Pane;
 
 import java.util.Collections;
 import java.util.LinkedList;
