@@ -9,7 +9,9 @@ import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
 
 public class SnakeHead extends GameEntity implements Animatable {
-
+    private static double rotation;
+    private static double xCoordinate;
+    private static double yCoordinate;
     private static float speed = 3;
     private static final float turnRate = 2;
     private GameEntity tail; // the last element. Needed to know where to add the next part.
@@ -38,8 +40,20 @@ public class SnakeHead extends GameEntity implements Animatable {
         tail = this;
         setImage(Globals.snakeHead);
         pane.getChildren().add(this);
-
         addPart(2);
+    }
+
+    public static double getRotation() {
+        return rotation;
+    }
+
+
+    public static double getxCoordinate() {
+        return xCoordinate;
+    }
+
+    public static double getyCoordinate() {
+        return yCoordinate;
     }
 
     public void step() {
@@ -55,6 +69,9 @@ public class SnakeHead extends GameEntity implements Animatable {
         Point2D heading = Utils.directionToVector(dir, speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+        SnakeHead.xCoordinate = getX();
+        SnakeHead.yCoordinate = getY();
+        rotation = getRotate();
 
         // check if collided with an enemy or a powerup
         for (GameEntity entity : Globals.getGameObjects()) {
