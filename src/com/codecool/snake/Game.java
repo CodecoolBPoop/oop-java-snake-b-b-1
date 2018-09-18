@@ -1,6 +1,8 @@
 package com.codecool.snake;
 
+import com.codecool.snake.entities.Controller.Controller;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
+import com.codecool.snake.entities.powerups.LaserPowerUp;
 import com.codecool.snake.entities.powerups.MousePowerup;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
@@ -11,7 +13,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 
 
@@ -23,12 +24,17 @@ public class Game extends Pane {
     // if this constructor is changed, restartCase() method has to be changed the same way!
     public Game() {
         gameInit();
+        setPane();
     }
 
     /*  at restart creates new object for the game because they we cleared
     *   if Game() - constructor changed, this has to be changed the same way */
-
+    public void setPane(){
+        Globals.pane = this;
+    }
     public void gameInit() {
+        Controller controller = new Controller(this);
+        new LaserPowerUp(this);
         new SnakeHead(this, 500, 500);
 
         new SimpleEnemy(this);

@@ -9,6 +9,8 @@ import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
 
 public class SnakeHead extends GameEntity implements Animatable {
+
+    private static int laserCounter;
     private static double rotation;
     private static double xCoordinate;
     private static double yCoordinate;
@@ -27,12 +29,20 @@ public class SnakeHead extends GameEntity implements Animatable {
         return health;
     }
 
+    public static int getLaserCounter() {
+        return laserCounter;
+    }
+
+    public static void modifyLaser(int amount){
+        laserCounter += amount;
+    }
     public void modifySpeed(float amount) {
         SnakeHead.speed += amount;
     }
 
     public SnakeHead(Pane pane, int xc, int yc) {
         super(pane);
+        laserCounter = 0;
         setX(xc);
         setY(yc);
         health = 100;
