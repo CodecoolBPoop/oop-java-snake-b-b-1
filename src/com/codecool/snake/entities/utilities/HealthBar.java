@@ -1,6 +1,5 @@
 package com.codecool.snake.entities.utilities;
 
-import com.codecool.snake.Game;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
