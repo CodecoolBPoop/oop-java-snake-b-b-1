@@ -32,6 +32,10 @@ public class SnakeHead extends GameEntity implements Animatable {
         return health;
     }
 
+    public int getScore() {
+        return score;
+    }
+
     public static int getLaserCounter() {
         return laserCounter;
     }
@@ -99,6 +103,7 @@ public class SnakeHead extends GameEntity implements Animatable {
 
         // check for game over condition
         if (isOutOfBounds() || health <= 0) {
+            health -= health;
             System.out.println("Game Over");
             Globals.gameLoop.stop();
             Game.gameOver(score);

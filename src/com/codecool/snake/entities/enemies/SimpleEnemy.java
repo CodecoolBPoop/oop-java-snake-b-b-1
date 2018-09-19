@@ -17,7 +17,7 @@ import java.util.Random;
 public class SimpleEnemy extends GameEntity implements Animatable, Interactable, Destructible {
 
     private Point2D heading;
-    private static final int damage = 65;
+    private static final int damage = 10;
 
     public SimpleEnemy(Pane pane) {
         super(pane);
