@@ -15,16 +15,15 @@ public class HealthBar extends GameEntity implements Animatable {
         setY(20);
         setFitWidth(100);
         setImage(Globals.healthBarImage);
-        pane.getChildren().add(this);
-
     }
+
     private ColorAdjust monochrome = new ColorAdjust();
 
     public void step() {
         int currentHealth = Globals.getSnakeHead().getHealth();
         if (currentHealth <= 0) {
             setFitWidth(1);
-            //Game.gameOver();
+            Game.gameOver();
         } else {
             setFitWidth(currentHealth);
         }

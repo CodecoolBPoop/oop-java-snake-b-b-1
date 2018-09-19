@@ -1,5 +1,6 @@
 package com.codecool.snake.entities.snakes;
 
+import com.codecool.snake.Game;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
@@ -10,28 +11,41 @@ import javafx.scene.layout.Pane;
 
 public class SnakeHead extends GameEntity implements Animatable {
 
+    private static int laserCounter;
+    private static double rotation;
+    private static double xCoordinate;
+    private static double yCoordinate;
     private static float speed = 3;
     private static final float turnRate = 2;
     private GameEntity tail; // the last element. Needed to know where to add the next part.
     private int health;
     private static int healthValue;
+    private int score;
+
 
     public void modifyScore(int value) {
         this.score += value;
     }
 
-    private int score;
 
     public int getHealth() {
         return health;
     }
 
+    public static int getLaserCounter() {
+        return laserCounter;
+    }
+
+    public static void modifyLaser(int amount){
+        laserCounter += amount;
+    }
     public void modifySpeed(float amount) {
         SnakeHead.speed += amount;
     }
 
     public SnakeHead(Pane pane, int xc, int yc) {
         super(pane);
+        laserCounter = 0;
         setX(xc);
         setY(yc);
         health = 100;
@@ -39,8 +53,20 @@ public class SnakeHead extends GameEntity implements Animatable {
         tail = this;
         setImage(Globals.snakeHead);
         pane.getChildren().add(this);
-
         addPart(2);
+    }
+
+    public static double getRotation() {
+        return rotation;
+    }
+
+
+    public static double getxCoordinate() {
+        return xCoordinate;
+    }
+
+    public static double getyCoordinate() {
+        return yCoordinate;
     }
 
     public void step() {
@@ -56,6 +82,9 @@ public class SnakeHead extends GameEntity implements Animatable {
         Point2D heading = Utils.directionToVector(dir, speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
+        SnakeHead.xCoordinate = getX();
+        SnakeHead.yCoordinate = getY();
+        rotation = getRotate();
 
         // check if collided with an enemy or a powerup
         for (GameEntity entity : Globals.getGameObjects()) {
@@ -71,8 +100,8 @@ public class SnakeHead extends GameEntity implements Animatable {
         // check for game over condition
         if (isOutOfBounds() || health <= 0) {
             System.out.println("Game Over");
-            System.out.println(Globals.getSnakeHead().getHealth());
             Globals.gameLoop.stop();
+            Game.gameOver(score);
         }
     }
 
@@ -85,9 +114,5 @@ public class SnakeHead extends GameEntity implements Animatable {
 
     public void changeHealth(int diff) {
         health += diff;
-    }
-
-    public int getScore() {
-        return score;
     }
 }
