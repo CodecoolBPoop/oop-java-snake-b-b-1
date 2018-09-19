@@ -47,10 +47,7 @@ public class Game extends Pane {
         new LaserPowerUp(this);
         new SnakeHead(this, 500, 500);
 
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
+
 
         new SimplePowerup(this);
         new SimplePowerup(this);

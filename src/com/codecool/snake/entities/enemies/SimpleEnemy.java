@@ -21,17 +21,13 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable,
 
     public SimpleEnemy(Pane pane) {
         super(pane);
-
+        int speed = 0; // 1
+        do {
+            spawnInit(speed);
+        } while (isOnEntity(getX(), getY()));
         setImage(Globals.simpleEnemy);
         pane.getChildren().add(this);
-        int speed = 1;
-        Random rnd = new Random();
-        setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
-        setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
 
-        double direction = rnd.nextDouble() * 360;
-        setRotate(direction);
-        heading = Utils.directionToVector(direction, speed);
     }
 
     @Override
@@ -57,5 +53,26 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable,
     @Override
     public void getHit() {
         destroy();
+    }
+
+    public void spawnInit(int speed) {
+        Random rnd = new Random();
+        setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
+        setY(rnd.nextDouble() * Globals.WINDOW_HEIGHT);
+        double direction = rnd.nextDouble() * 360;
+        setRotate(direction);
+        heading = Utils.directionToVector(direction, speed);
+    }
+
+    public boolean isOnEntity(double x, double y) {
+        System.out.println(Globals.getGameObjects().size());
+        for (GameEntity entity: Globals.getGameObjects()) {
+            System.out.println(String.format("Result is: %d", (Math.abs(entity.getX() - x))));
+            if (Math.abs(x - entity.getX()) < 60 &&  Math.abs(y - entity.getY()) < 60) {
+                System.out.println(Math.abs(entity.getX() - x));
+                return true;
+            }
+        }
+        return false;
     }
 }
