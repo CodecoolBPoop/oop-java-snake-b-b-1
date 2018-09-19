@@ -25,6 +25,8 @@ import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 
 public class Game extends Pane {
 
@@ -126,15 +128,18 @@ public class Game extends Pane {
 
 
     public static void gameOver(int score) {
-        final Stage myDialog = new Stage();
-        myDialog.initModality(Modality.APPLICATION_MODAL);
+        final Stage gameOverModal = new Stage();
+        gameOverModal.initModality(Modality.APPLICATION_MODAL);
         Button okButton = new Button("I know, dude :(");
+        gameOverModal.setOnCloseRequest((WindowEvent e) ->{
+            Globals.game.endGameButtonsInit();
+        });
         okButton.setOnAction(new EventHandler<ActionEvent>(){
 
             @Override
             public void handle(ActionEvent arg0) {
                 Globals.game.endGameButtonsInit();
-                myDialog.close();
+                gameOverModal.close();
             }
 
         });
@@ -143,8 +148,8 @@ public class Game extends Pane {
                 .alignment(Pos.CENTER)
                 .padding(new Insets(10))
                 .build());
-        myDialog.setScene(myDialogScene);
-        myDialog.show();
+        gameOverModal.setScene(myDialogScene);
+        gameOverModal.show();
     }
 
 
