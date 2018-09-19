@@ -7,6 +7,8 @@ import com.codecool.snake.entities.powerups.LaserPowerUp;
 import com.codecool.snake.entities.powerups.MousePowerup;
 import com.codecool.snake.entities.powerups.SimplePowerup;
 import com.codecool.snake.entities.snakes.SnakeHead;
+import com.codecool.snake.entities.utilities.HealthBar;
+import com.codecool.snake.entities.utilities.HealthBarFrame;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -60,6 +62,9 @@ public class Game extends Pane {
         new SimplePowerup(this);
 
         new MousePowerup(this);
+
+        new HealthBarFrame(this);
+        new HealthBar(this);
 
         Globals.leftKeyDown = false;
         Globals.rightKeyDown = false;

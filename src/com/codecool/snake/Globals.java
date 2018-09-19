@@ -27,6 +27,8 @@ public class Globals {
     public static Image backgroundImage = new Image("grass-background.png");
     public static Image laser = new Image("laser.png");
     public static Image laserPowerUp = new Image("laserPowerUp.png");
+    public static Image healthBarFrameImage = new Image("healthbarframe.png");
+    public static Image healthBarImage = new Image("healthbar.png");
     //.. put here the other images you want to use
 
     public static boolean leftKeyDown;
@@ -38,6 +40,14 @@ public class Globals {
 
     public static Stage primaryStage;
 
+    public static SnakeHead getSnakeHead() {
+        for (GameEntity entity : Globals.getGameObjects()) {
+            if (entity instanceof SnakeHead) {
+                return (SnakeHead) entity;
+            }
+        }
+        return null;
+    }
     static {
         gameObjects = new LinkedList<>();
         newGameObjects = new LinkedList<>();

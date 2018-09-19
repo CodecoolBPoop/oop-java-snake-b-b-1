@@ -19,6 +19,7 @@ public class SnakeHead extends GameEntity implements Animatable {
     private static final float turnRate = 2;
     private GameEntity tail; // the last element. Needed to know where to add the next part.
     private int health;
+    private static int healthValue;
     private int score;
 
 
@@ -29,6 +30,10 @@ public class SnakeHead extends GameEntity implements Animatable {
 
     public int getHealth() {
         return health;
+    }
+
+    public int getScore() {
+        return score;
     }
 
     public static int getLaserCounter() {
@@ -98,6 +103,7 @@ public class SnakeHead extends GameEntity implements Animatable {
 
         // check for game over condition
         if (isOutOfBounds() || health <= 0) {
+            health -= health;
             System.out.println("Game Over");
             Globals.gameLoop.stop();
             Game.gameOver(score);
