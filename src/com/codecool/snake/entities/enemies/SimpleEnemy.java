@@ -1,5 +1,6 @@
 package com.codecool.snake.entities.enemies;
 
+import com.codecool.snake.entities.Destructible;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
@@ -8,11 +9,12 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
+import jdk.nashorn.internal.objects.Global;
 
 import java.util.Random;
 
 // a simple enemy TODO make better ones.
-public class SimpleEnemy extends GameEntity implements Animatable, Interactable {
+public class SimpleEnemy extends GameEntity implements Animatable, Interactable, Destructible {
 
     private Point2D heading;
     private static final int damage = 10;
@@ -50,5 +52,10 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable 
     @Override
     public String getMessage() {
         return "10 damage";
+    }
+
+    @Override
+    public void getHit() {
+        destroy();
     }
 }
