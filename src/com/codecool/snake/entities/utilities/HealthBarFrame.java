@@ -3,6 +3,7 @@ package com.codecool.snake.entities.utilities;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
+import javafx.geometry.HPos;
 import javafx.scene.layout.Pane;
 
 public class HealthBarFrame extends GameEntity implements Animatable {
