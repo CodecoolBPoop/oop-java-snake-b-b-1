@@ -15,8 +15,8 @@ public class SnakeHead extends GameEntity implements Animatable {
     private static double rotation;
     private static double xCoordinate;
     private static double yCoordinate;
-    private static float speed = 3;
-    private static final float turnRate = 2;
+    private static float speed = 4;
+    private static final float turnRate = 4;
     private GameEntity tail; // the last element. Needed to know where to add the next part.
     private int health;
     private static int healthValue;

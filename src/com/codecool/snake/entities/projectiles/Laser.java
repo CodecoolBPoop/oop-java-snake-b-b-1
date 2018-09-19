@@ -30,6 +30,9 @@ public class Laser extends GameEntity implements Animatable, Projectile {
 
     @Override
     public void step() {
+        if (isOutOfBounds()) {
+            destroy();
+        }
         Point2D heading = Utils.directionToVector(getRotate(), speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());

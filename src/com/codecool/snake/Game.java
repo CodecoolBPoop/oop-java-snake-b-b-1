@@ -2,6 +2,7 @@ package com.codecool.snake;
 
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Controller.Controller;
+import com.codecool.snake.entities.enemies.Eagle;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.LaserPowerUp;
 import com.codecool.snake.entities.powerups.MousePowerup;
@@ -48,18 +49,7 @@ public class Game extends Pane {
     }
     public void gameInit(Stage primaryStage) {
         Controller controller = new Controller(this);
-        new LaserPowerUp(this);
         new SnakeHead(this, 500, 500);
-
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-        new SimpleEnemy(this);
-
-        new SimplePowerup(this);
-        new SimplePowerup(this);
-        new SimplePowerup(this);
-        new SimplePowerup(this);
 
         new MousePowerup(this);
 
