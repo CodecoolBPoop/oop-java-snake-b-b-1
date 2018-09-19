@@ -6,6 +6,7 @@ import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.Controller.Controller;
 import com.codecool.snake.entities.Destructible;
 import com.codecool.snake.entities.GameEntity;
+import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
@@ -13,7 +14,7 @@ import javafx.scene.layout.Pane;
 
 import java.util.Random;
 
-public class Eagle extends GameEntity implements Destructible, Animatable {
+public class Eagle extends GameEntity implements Destructible, Animatable, Interactable {
     private Point2D heading;
     private int hp;
     private int speed;
@@ -56,5 +57,17 @@ public class Eagle extends GameEntity implements Destructible, Animatable {
             Controller.eagleExists = false;
             destroy();
         }
+    }
+
+    @Override
+    public void apply(SnakeHead snakeHead) {
+        snakeHead.changeHealth(-70);
+        destroy();
+        Controller.eagleExists = false;
+    }
+
+    @Override
+    public String getMessage() {
+        return "70 damage";
     }
 }
