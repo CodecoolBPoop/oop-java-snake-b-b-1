@@ -27,7 +27,6 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable,
         } while (isOnEntity(getX(), getY()));
         setImage(Globals.simpleEnemy);
         pane.getChildren().add(this);
-
     }
 
     @Override
