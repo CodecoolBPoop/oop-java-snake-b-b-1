@@ -14,7 +14,6 @@ import java.util.List;
 public class Globals {
 
     public static Game game;
-
     public static final double WINDOW_WIDTH = 1000;
     public static final double WINDOW_HEIGHT = 700;
     public static Pane pane;
@@ -26,6 +25,7 @@ public class Globals {
     public static Image restartImage = new Image("myRestart.png");
     public static Image backgroundImage = new Image("grass-background.png");
     public static Image laser = new Image("laser.png");
+    public static Image eagle = new Image("eagle.png");
     public static Image laserPowerUp = new Image("laserPowerUp.png");
     //.. put here the other images you want to use
 

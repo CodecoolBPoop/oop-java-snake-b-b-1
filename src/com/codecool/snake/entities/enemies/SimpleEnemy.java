@@ -21,7 +21,7 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable,
 
     public SimpleEnemy(Pane pane) {
         super(pane);
-        int speed = 0; // 1
+        int speed = 1; // 1
         do {
             spawnInit(speed);
         } while (isOnEntity(getX(), getY()));
@@ -65,9 +65,7 @@ public class SimpleEnemy extends GameEntity implements Animatable, Interactable,
     }
 
     public boolean isOnEntity(double x, double y) {
-        System.out.println(Globals.getGameObjects().size());
         for (GameEntity entity: Globals.getGameObjects()) {
-            System.out.println(String.format("Result is: %d", (Math.abs(entity.getX() - x))));
             if (Math.abs(x - entity.getX()) < 60 &&  Math.abs(y - entity.getY()) < 60) {
                 System.out.println(Math.abs(entity.getX() - x));
                 return true;
