@@ -71,8 +71,11 @@ public class Game extends Pane {
 
     // creates end game buttons
     public void endGameButtonsInit() {
-        Button exitButton = new Button("Exit");
         Button endGamerestartButton = new Button("Restart");
+        Button exitButton = new Button("Exit");
+        exitButton.getStyleClass().add("exitButton");
+        endGamerestartButton.getStyleClass().add("restartButton");
+
 
         exitButton.setOnAction(new EventHandler<ActionEvent>(){
             @Override
@@ -91,9 +94,9 @@ public class Game extends Pane {
             }
         });
 
-        exitButton.setLayoutX(400);
+        exitButton.setLayoutX(560);
         exitButton.setLayoutY(400);
-        endGamerestartButton.setLayoutX(500);
+        endGamerestartButton.setLayoutX(340);
         endGamerestartButton.setLayoutY(400);
 
         getChildren().add(exitButton);
@@ -138,12 +141,12 @@ public class Game extends Pane {
             }
 
         });
-        Scene myDialogScene = new Scene(VBoxBuilder.create()
+        Scene gameOverScene = new Scene(VBoxBuilder.create()
                 .children(new Text(String.format("Nah, the Game is Over mate!\nBut your score is %d.", score)), okButton)
                 .alignment(Pos.CENTER)
                 .padding(new Insets(10))
                 .build());
-        gameOverModal.setScene(myDialogScene);
+        gameOverModal.setScene(gameOverScene);
         gameOverModal.show();
     }
 
@@ -165,15 +168,9 @@ public class Game extends Pane {
 
 
     public void initButton() {
+        restartButton.getStyleClass().add("baseRestartButton");
         if(getChildren().contains(restartButton))
             getChildren().remove(restartButton);
-        restartButton.setLayoutX(40);
-        restartButton.setLayoutY(40);
-
-        restartButton.setMaxSize(10, 10);
-        restartButton.setMinSize(10, 10);
-
-        restartButton.setStyle("-fx-background-color: transparent; ");
         getChildren().add(restartButton);
         addMouseEventHandler();
     }

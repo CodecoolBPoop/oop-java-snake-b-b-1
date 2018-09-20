@@ -1,0 +1,67 @@
+.exitButton {
+    -fx-background-color:
+            linear-gradient(red, darkred),
+            radial-gradient(center 50% -40%, radius 200%, #ff3636 45%, #ff0000 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: black;
+    -fx-pref-width: 100;
+    -fx-max-width: 100;
+    -fx-min-width: 100;
+    -fx-pref-height: 40;
+    -fx-min-height: 40;
+    -fx-max-height: 40;
+}
+.exitButton:hover {
+    -fx-translate-x: -10;
+    -fx-translate-y: -10;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,1) , 50, 0.0 , 0 , 1 );
+    -fx-pref-width: 120;
+    -fx-max-width: 120;
+    -fx-min-width: 120;
+    -fx-pref-height: 60;
+    -fx-min-height: 60;
+    -fx-max-height: 60
+
+}
+
+.restartButton {
+    -fx-background-color:
+            linear-gradient(#f0ff35, #a9ff00),
+            radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );
+    -fx-text-fill: #395306;
+    -fx-pref-width: 100;
+    -fx-max-width: 100;
+    -fx-min-width: 100;
+    -fx-pref-height: 40;
+    -fx-min-height: 40;
+    -fx-max-height: 40;
+}
+.restartButton:hover {
+    -fx-translate-x: -10;
+    -fx-translate-y: -10;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,1) , 50, 0.0 , 20 , 1 );
+    -fx-pref-width: 120;
+    -fx-max-width: 120;
+    -fx-min-width: 120;
+    -fx-pref-height: 60;
+    -fx-min-height: 60;
+    -fx-max-height: 60
+}
+
+.baseRestartButton {
+    -fx-translate-x: 10;
+    -fx-translate-y: 10;
+    -fx-background-color: transparent;
+}
+
+.healthBar {
+    -fx-translate-x: 880;
+    -fx-translate-y: 20;
+}
+
+

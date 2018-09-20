@@ -32,7 +32,9 @@ public class Main extends Application {
         });
         game.setTableBackground(Globals.backgroundImage);
         primaryStage.setTitle("Snake Game");
-        primaryStage.setScene(new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT));
+        Scene scene = new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT);
+        scene.getStylesheets().add(com.codecool.snake.Main.class.getResource("style.css").toExternalForm());
+        primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
         game.start();

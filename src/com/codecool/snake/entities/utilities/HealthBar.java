@@ -9,8 +9,7 @@ import javafx.scene.layout.Pane;
 public class HealthBar extends GameEntity implements Animatable {
     public HealthBar(Pane pane){
         super(pane);
-        setX(880);
-        setY(20);
+        this.getStyleClass().add("healthBar");
         setFitWidth(100);
         setImage(Globals.healthBarImage);
         pane.getChildren().add(this);
