@@ -6,10 +6,12 @@ import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.enemies.Eagle;
 import com.codecool.snake.entities.enemies.SimpleEnemy;
 import com.codecool.snake.entities.powerups.LaserPowerUp;
+import com.codecool.snake.entities.terrain.Terrain;
 import javafx.scene.layout.Pane;
 
 public class Controller extends GameEntity implements Animatable {
 
+    public static int rocksToSpawn;
     public static boolean eagleExists;
     public static boolean laserPowerUpExists;
     public int laserPoweUpTimer = 300;
@@ -20,11 +22,15 @@ public class Controller extends GameEntity implements Animatable {
         super(pane);
         eagleExists = false;
         laserPowerUpExists = false;
+        rocksToSpawn =4;
     }
 
     @Override
     public void step(){
-
+        if (rocksToSpawn>0){
+            new Terrain(Globals.pane);
+            rocksToSpawn-=1;
+        }
         //laserPowerUpTimer
         if (!laserPowerUpExists){
             laserPoweUpTimer-=1;
