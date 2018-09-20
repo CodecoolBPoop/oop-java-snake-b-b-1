@@ -43,9 +43,7 @@ public class SnakeHead extends GameEntity implements Animatable {
     public static void modifyLaser(int amount){
         laserCounter += amount;
     }
-    public void modifySpeed(float amount) {
-        SnakeHead.speed += amount;
-    }
+    
 
     public SnakeHead(Pane pane, int xc, int yc) {
         super(pane);
