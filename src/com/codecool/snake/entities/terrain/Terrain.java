@@ -41,7 +41,6 @@ public class Terrain extends GameEntity implements Interactable {
     public boolean isOnEntity(double x, double y){
         for (GameEntity entity: Globals.getGameObjects()) {
             if (Math.abs(x - entity.getX()) < 200 &&  Math.abs(y - entity.getY()) < 200) {
-                System.out.println(Math.abs(entity.getX() - x));
                 return true;
             }
         }

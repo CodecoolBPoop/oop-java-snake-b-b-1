@@ -18,14 +18,12 @@ public class MousePowerup extends GameEntity implements Interactable, Animatable
 
     public MousePowerup(Pane pane){
         super(pane);
+
+        do {
+            spawnInit();
+        } while (isOnEntity(getX(), getY()));
         setImage(Globals.mouse);
         pane.getChildren().add(this);
-
-        Random rnd = new Random();
-        Double y = rnd.nextDouble()* (Globals.WINDOW_HEIGHT-70);
-        Double x = rnd.nextDouble() * (Globals.WINDOW_WIDTH-40);
-        setX(x);
-        setY(y);
     }
 
     @Override
@@ -53,4 +51,20 @@ public class MousePowerup extends GameEntity implements Interactable, Animatable
         setX(getX() + heading.getX());
         setY(getY()+ heading.getY());
     }
+
+    public void spawnInit(){
+        Random rnd = new Random();
+        setX(rnd.nextDouble() * (Globals.WINDOW_WIDTH-50));
+        setY(rnd.nextDouble() * (Globals.WINDOW_HEIGHT-50));
+    }
+
+    public boolean isOnEntity(double x, double y){
+        for (GameEntity entity: Globals.getGameObjects()) {
+            if (Math.abs(x - entity.getX()) < 70 &&  Math.abs(y - entity.getY()) < 70) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
